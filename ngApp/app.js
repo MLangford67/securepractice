@@ -6,13 +6,13 @@ var secure;
             url: '/',
             templateUrl: '/ngApp/views/home.html',
             controller: secure.Controllers.HomeController,
-            controllerAs: 'controller'
+            controllerAs: 'vm'
         })
             .state('about', {
             url: '/about',
             templateUrl: '/ngApp/views/about.html',
             controller: secure.Controllers.AboutController,
-            controllerAs: 'controller'
+            controllerAs: 'vm'
         })
             .state('notFound', {
             url: '/notFound',

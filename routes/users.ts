@@ -14,7 +14,7 @@ router.post('/Register', (req, res) =>{
     if(err){
       console.log(err)
     }else{
-      res.end()
+      res.end("wohoo!")
     }
   })
 })

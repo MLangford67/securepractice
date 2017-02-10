@@ -34,7 +34,7 @@ app.use(passport.initialize());
 mongoose.connect('mongodb://Mlangford67:Carnifex6@ds159208.mlab.com:59208/piranhaspiderdb');
 
 app.use('/', routes);
-app.use('/usersRoutes/api/', users);
+app.use('/usersRoutes/api/Register', users);
 
 
 // redirect 404 to home for the sake of AngularJS client-side routes

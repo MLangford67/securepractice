@@ -1,8 +1,22 @@
 namespace secure.Controllers {
 
     export class HomeController {
-        public message = 'Hello from the home page!';
-    }
+      public newUser;
+
+     constructor(private $http: ng.IHttpService) { }
+
+     public postUser (){
+         this.$http.post('/usersRoutes/api/Register', this.newUser).then((result)=>{
+             console.log(result);
+          })
+          .catch((err)=>{
+              console.log(err)
+         });
+     }
+
+}
+
+
 
 
     export class AboutController {

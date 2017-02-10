@@ -12,7 +12,7 @@ router.post('/Register', function (req, res) {
             console.log(err);
         }
         else {
-            res.end();
+            res.end("wohoo!");
         }
     });
 });

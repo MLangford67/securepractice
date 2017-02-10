@@ -3,9 +3,17 @@ var secure;
     var Controllers;
     (function (Controllers) {
         var HomeController = (function () {
-            function HomeController() {
-                this.message = 'Hello from the home page!';
+            function HomeController($http) {
+                this.$http = $http;
             }
+            HomeController.prototype.postUser = function () {
+                this.$http.post('/usersRoutes/api/Register', this.newUser).then(function (result) {
+                    console.log(result);
+                })
+                    .catch(function (err) {
+                    console.log(err);
+                });
+            };
             return HomeController;
         }());
         Controllers.HomeController = HomeController;
