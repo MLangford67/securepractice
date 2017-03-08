@@ -4,6 +4,8 @@ var crypto = require("crypto");
 var jwt = require("jsonwebtoken");
 var UserSchema = new mongoose.Schema({
     username: { type: String, lowercase: true, unique: true },
+    displayName: String,
+    facebookId: String,
     email: { type: String, lowercase: true, unique: true },
     passwordHash: String,
     salt: String
@@ -19,6 +21,7 @@ UserSchema.method('validatePassword', function (password) {
 UserSchema.method('generateJWT', function () {
     return jwt.sign({
         id: this._id,
+        displayName: this.displayName,
         username: this.username,
         email: this.email,
     }, 'SecretKey');

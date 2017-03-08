@@ -1,26 +1,37 @@
 namespace secure.Controllers {
 
-    export class HomeController {
-      public newUser;
+  export class LoginController {
+     public userInfo
 
-     constructor(private $http: ng.IHttpService) { }
-
-     public postUser (){
-         this.$http.post('/usersRoutes/api/Register', this.newUser).then((result)=>{
-             console.log(result);
-          })
-          .catch((err)=>{
-              console.log(err)
-         });
+     public login() {
+       this.userService.loginUser(this.userInfo).then((data) => {
+         this.$window.localStorage.setItem("token", JSON.stringify(data.token));
+         alert('login successful');
+       })
      }
 
-}
+     public constructor(
+       private userService,
+       public $window
+     ) {
 
+     }
 
+   }
 
+   export class RegisterController {
+     public user
 
-    export class AboutController {
-        public message = 'Hello from the about page!';
-    }
+     public signup() {
+       this.userService.registerUser(this.user).then(() => {
+         alert('signup successful, please login');
+       })
+     }
 
+     public constructor(
+       private userService
+     ) {
+
+     }
+   }
 }

@@ -11,6 +11,8 @@ import routes from './routes/index';
 import users from './routes/users'
 import * as passport from 'passport';
 require('./models/user');
+require('./config/passport');
+
 
 
 let app = express();
@@ -34,7 +36,8 @@ app.use(passport.initialize());
 mongoose.connect('mongodb://Mlangford67:Carnifex6@ds159208.mlab.com:59208/piranhaspiderdb');
 
 app.use('/', routes);
-app.use('/usersRoutes/api/Register', users);
+app.use('/userRoutes/api/', users);
+
 
 
 // redirect 404 to home for the sake of AngularJS client-side routes

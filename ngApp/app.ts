@@ -7,18 +7,18 @@ namespace secure {
     ) => {
         // Define routes
         $stateProvider
-            .state('home', {
-                url: '/',
-                templateUrl: '/ngApp/views/home.html',
-                controller: secure.Controllers.HomeController,
-                controllerAs: 'vm'
-            })
-            .state('about', {
-                url: '/about',
-                templateUrl: '/ngApp/views/about.html',
-                controller: secure.Controllers.AboutController,
-                controllerAs: 'vm'
-            })
+        .state('login', {
+            url: '/',
+            templateUrl: '/ngApp/views/login.html',
+            controller: secure.Controllers.LoginController,
+            controllerAs: 'vm'
+        })
+        .state('register', {
+            url: '/register',
+            templateUrl: '/ngApp/views/register.html',
+            controller: secure.Controllers.RegisterController,
+            controllerAs: 'vm'
+        })
             .state('notFound', {
                 url: '/notFound',
                 templateUrl: '/ngApp/views/notFound.html'
